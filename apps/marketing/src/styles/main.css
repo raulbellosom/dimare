@@ -1,0 +1,370 @@
+@import "tailwindcss";
+
+/* ============================================
+   Casa DI'MARE - Tema con TailwindCSS 4.1
+   ============================================ */
+
+@theme {
+  /* === Colores de marca === */
+  --color-dimare-green: #2e6b3f;
+  --color-dimare-green-light: #7fae8a;
+  --color-dimare-green-dark: #1d4a2b;
+  --color-dimare-red: #8c2d2d;
+  --color-dimare-red-light: #b84545;
+  --color-dimare-gray: #5e6b63;
+  --color-dimare-cream: #f6f2ea;
+  --color-dimare-cream-dark: #ede7db;
+
+  /* === Colores para frutas y vegetales === */
+  --color-fruit-orange: #f5a623;
+  --color-fruit-lemon: #f7dc6f;
+  --color-fruit-lime: #82e0aa;
+  --color-fruit-berry: #9b59b6;
+  --color-fruit-watermelon: #e74c3c;
+  --color-fruit-pineapple: #f4d03f;
+  --color-fruit-mango: #ff9800;
+  --color-fruit-papaya: #ffab40;
+  --color-vegetable-carrot: #e67e22;
+  --color-vegetable-beet: #8e44ad;
+  --color-vegetable-cucumber: #27ae60;
+  --color-vegetable-celery: #a8d5ba;
+  --color-vegetable-spinach: #2e7d32;
+  --color-vegetable-ginger: #d4a574;
+
+  /* === Tipografías === */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Libre Baskerville", Georgia, serif;
+  --font-script: "Allura", cursive;
+
+  /* === Animaciones === */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+  --animate-wave: wave 8s ease-in-out infinite;
+  --animate-bounce-soft: bounce-soft 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2s linear infinite;
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-slide-up: slide-up 0.6s ease-out forwards;
+  --animate-slide-down: slide-down 0.6s ease-out forwards;
+  --animate-scale-in: scale-in 0.4s ease-out forwards;
+  --animate-rotate-slow: rotate-slow 20s linear infinite;
+  --animate-gradient: gradient-move 8s ease infinite;
+
+  /* === Sombras === */
+  --shadow-soft: 0 4px 20px rgba(46, 107, 63, 0.1);
+  --shadow-medium: 0 8px 32px rgba(46, 107, 63, 0.15);
+  --shadow-strong: 0 12px 48px rgba(46, 107, 63, 0.2);
+  --shadow-glow-green: 0 0 30px rgba(46, 107, 63, 0.3);
+  --shadow-glow-red: 0 0 30px rgba(140, 45, 45, 0.3);
+
+  /* === Border radius personalizados === */
+  --radius-blob: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  --radius-organic: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  --radius-wave: 40% 60% 60% 40% / 40% 50% 50% 60%;
+}
+
+/* === Keyframes === */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(5px) translateY(-5px);
+  }
+  50% {
+    transform: translateX(10px) translateY(0);
+  }
+  75% {
+    transform: translateX(5px) translateY(5px);
+  }
+}
+
+@keyframes bounce-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-move {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes blob-morph {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 40% 60% 60% 40% / 40% 50% 50% 60%;
+  }
+  75% {
+    border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+  }
+}
+
+/* === Estilos base === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* === Light/Dark Theme Variables === */
+:root {
+  --bg-primary: #faf9f6;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f5f3ee;
+  --bg-card: #ffffff;
+  --text-primary: #2d3a2e;
+  --text-secondary: #5a6b5d;
+  --text-muted: #8a9b8d;
+  --text-heading: #1a4d28;
+  --text-accent: var(--color-dimare-red);
+  --border-color: rgba(46, 107, 63, 0.12);
+  --shadow-color: rgba(46, 107, 63, 0.08);
+  --gradient-start: #f5f9f6;
+  --gradient-end: #eef4f0;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --hero-overlay: rgba(250, 249, 246, 0.95);
+  /* Wave section - verde muy sutil para modo claro */
+  --wave-section-bg: #e8f0e9;
+  --wave-fill: #e8f0e9;
+}
+
+.dark {
+  --bg-primary: #0a1410;
+  --bg-secondary: #132119;
+  --bg-tertiary: #1a2e1f;
+  --bg-card: #1a2e1f;
+  --text-primary: #e8ede9;
+  --text-secondary: #b8c5ba;
+  --text-muted: #8a9b8d;
+  --text-heading: #7fae8a;
+  --text-accent: var(--color-dimare-red-light);
+  --border-color: rgba(127, 174, 138, 0.2);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --gradient-start: #0a1410;
+  --gradient-end: #132119;
+  --card-bg: rgba(26, 46, 31, 0.9);
+  --hero-overlay: rgba(10, 20, 16, 0.95);
+  /* Wave section - verde oscuro para modo oscuro */
+  --wave-section-bg: #1a2e1f;
+  --wave-fill: #1a2e1f;
+}
+
+/* === Utilidades personalizadas === */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-script {
+  font-family: var(--font-script);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--color-dimare-green) 0%,
+    var(--color-dimare-green-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-red {
+  background: linear-gradient(
+    135deg,
+    var(--color-dimare-red) 0%,
+    var(--color-dimare-red-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === Efectos de glass === */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(30, 50, 35, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(127, 174, 138, 0.2);
+}
+
+/* === Decoración de hojas === */
+.leaf-decoration::before {
+  content: "🍃";
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.3;
+  animation: float 8s ease-in-out infinite;
+}
+
+/* === Scrollbar personalizado === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dimare-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-dimare-green-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dimare-green);
+}
+
+/* === Selection === */
+::selection {
+  background-color: var(--color-dimare-green);
+  color: white;
+}
+
+/* === Focus styles === */
+:focus-visible {
+  outline: 2px solid var(--color-dimare-green);
+  outline-offset: 2px;
+}
+
+/* === Reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* === Scrollbar hide utility === */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
